@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Post on Ming's Blog</title><link>https://minghf85.github.io/tags/post/</link><description>Recent content in Post on Ming's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://minghf85.github.io/tags/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Explain Hugo-conten in One post</title><link>https://minghf85.github.io/post/hugo-content-explain/</link><pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate><guid>https://minghf85.github.io/post/hugo-content-explain/</guid><description>&lt;h1 id="hugo-content-结构详解">Hugo Content 结构详解&lt;/h1>
+&lt;h2 id="1-目录结构">1. 目录结构&lt;/h2>
+&lt;p>Hugo的内容组织非常清晰，主要遵循以下结构：&lt;/p>
+&lt;pre tabindex="0">&lt;code>content/
+├── _index.md # 首页内容
+├── about.md # 关于页面
+├── post/ # 博客文章目录
+│ ├── _index.md # 文章列表页
+│ ├── first-post.md # 具体文章
+│ └── second-post.md
+└── projects/ # 项目展示目录
+ ├── _index.md # 项目列表页
+ └── project1.md # 具体项目
+&lt;/code>&lt;/pre>&lt;h2 id="2-文章格式">2. 文章格式&lt;/h2>
+&lt;p>每篇文章都包含两个部分：&lt;/p>
+&lt;ol>
+&lt;li>Front Matter（前置元数据）&lt;/li>
+&lt;li>正文内容&lt;/li>
+&lt;/ol>
+&lt;h3 id="21-front-matter-详解">2.1 Front Matter 详解&lt;/h3>
+&lt;p>Front Matter 是文章开头的元数据部分，用 &lt;code>+++&lt;/code> 或 &lt;code>---&lt;/code> 包裹。常用字段包括：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">+++&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">title = &amp;#34;文章标题&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">date = &amp;#34;2025-04-09&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">description = &amp;#34;文章描述&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">tags = [&amp;#34;标签1&amp;#34;, &amp;#34;标签2&amp;#34;]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">categories = [&amp;#34;分类1&amp;#34;]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">draft = false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">+++&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="22-正文内容">2.2 正文内容&lt;/h3>
+&lt;p>正文部分支持 Markdown 格式，可以包含：&lt;/p></description></item></channel></rss>
