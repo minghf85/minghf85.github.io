@@ -86,5 +86,4 @@
 &lt;!-- raw HTML omitted -->
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="数学公式latex">数学公式（LaTeX）&lt;/h2>
-&lt;p>行内公式：$E=mc^2$&lt;/p></description></item><item><title>Rich Content</title><link>https://minghf85.github.io/post/rich-content/</link><pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate><guid>https://minghf85.github.io/post/rich-content/</guid><description>&lt;p>Hugo ships with several &lt;a href="https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes">Built-in Shortcodes&lt;/a> for rich content, along with a &lt;a href="https://gohugo.io/about/hugo-and-gdpr/">Privacy Config&lt;/a> and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p>
-&lt;h2>&lt;/h2></description></item></channel></rss>
+&lt;p>行内公式：$E=mc^2$&lt;/p></description></item></channel></rss>

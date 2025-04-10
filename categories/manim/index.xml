@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Manim on Ming's Blog</title><link>https://minghf85.github.io/categories/manim/</link><description>Recent content in Manim on Ming's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://minghf85.github.io/categories/manim/index.xml" rel="self" type="application/rss+xml"/><item><title>Manim Basic Use</title><link>https://minghf85.github.io/post/manim/basic-use/</link><pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate><guid>https://minghf85.github.io/post/manim/basic-use/</guid><description>&lt;h2>&lt;/h2></description></item><item><title>Manim Quick Start</title><link>https://minghf85.github.io/post/manim/quick-start/</link><pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate><guid>https://minghf85.github.io/post/manim/quick-start/</guid><description>&lt;h2 id="manim-and-manimgl">Manim And Manimgl&lt;/h2>
+&lt;p>Manim is a package created by 3Blue1Brown.&lt;br>
+We can use it to create some fluent and awesome animation by python coding.&lt;br>
+There are two main versions,Manim(Community),Manimgl(base on opengl).&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> 比较两者
+This series is for manimgl.&lt;/li>
+&lt;/ul>
+&lt;h2 id="install">Install&lt;/h2></description></item></channel></rss>
