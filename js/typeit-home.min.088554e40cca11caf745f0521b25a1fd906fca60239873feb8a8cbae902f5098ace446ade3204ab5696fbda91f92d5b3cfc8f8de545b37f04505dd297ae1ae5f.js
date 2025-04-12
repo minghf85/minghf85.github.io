@@ -1,0 +1,1 @@
+let typeItInstance=null;function initTypeIt(){typeItInstance&&typeItInstance.destroy();const e=document.querySelectorAll(".home-typeit");e.forEach(e=>{typeItInstance=new TypeIt(e,{speed:50,breakLines:!1,loop:!0,waitUntilVisible:!0}).go()})}document.addEventListener("DOMContentLoaded",initTypeIt),document.addEventListener("layoutChanged",initTypeIt)
