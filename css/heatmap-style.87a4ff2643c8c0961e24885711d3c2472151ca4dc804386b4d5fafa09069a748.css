@@ -1,0 +1,271 @@
+.heatmap-container {
+  width: 100%;
+  margin: 30px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  padding: 15px 0;
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.heatmap-header h4 {
+  margin: 0;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #767676;
+}
+
+.legend-squares {
+  display: flex;
+  margin: 0 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.legend-square {
+  width: 12px;
+  height: 12px;
+  margin: 0 1px;
+}
+
+.legend-square[data-level="0"] {
+  background-color: #ebedf0;
+}
+
+.legend-square[data-level="1"] {
+  background-color: #c6e48b;
+}
+
+.legend-square[data-level="2"] {
+  background-color: #7bc96f;
+}
+
+.legend-square[data-level="3"] {
+  background-color: #239a3b;
+}
+
+.legend-square[data-level="4"] {
+  background-color: #196127;
+}
+
+/* 热力图整体容器设置为相对定位，方便内部元素布局 */
+.heatmap-wrapper {
+  position: relative;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  /* 添加弹性容器，使内容在缩小时保持比例 */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 调整月份标签容器为相对定位布局 */
+.heatmap-months {
+  position: relative;
+  padding-left: 0; /* 移除左内边距，因为我们已经在JavaScript中考虑了星期标签宽度 */
+  margin-bottom: 10px;
+  width: 100%; /* 使用100%宽度 */
+  height: 20px; /* 为月份标签提供固定高度 */
+}
+
+.heatmap-months span {
+  position: absolute;
+  font-size: 10px;
+  color: #767676;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* 调整星期标签位置为左侧固定 */
+.heatmap-days {
+  position: absolute;
+  left: 0;
+  top: 34px;
+  width: 30px;
+  /* 设置为弹性容器，使星期标签均匀分布 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 高度与热力图网格高度一致 */
+  height: calc(7 * 14px + 6 * 4px);
+}
+
+.heatmap-days span {
+  /* 确保每个星期标签占据相同高度 */
+  height: 14px;
+  line-height: 14px;
+  font-size: 10px;
+  text-align: center;
+  color: #767676;
+}
+
+/* 隐藏除了一、三、五以外的星期标签 */
+.heatmap-days span:nth-child(1),  /* 日 */
+.heatmap-days span:nth-child(3),  /* 二 */
+.heatmap-days span:nth-child(5),  /* 四 */
+.heatmap-days span:nth-child(7) { /* 六 */
+  visibility: hidden;
+}
+
+/* 显示一、三、五的标签 */
+.heatmap-days span:nth-child(2),  /* 一 */
+.heatmap-days span:nth-child(4),  /* 三 */
+.heatmap-days span:nth-child(6) { /* 五 */
+  visibility: visible;
+}
+
+/* 优化热力图网格结构，确保等比例缩放 */
+.heatmap-grid {
+  margin-left: 30px;
+  display: grid;
+  grid-template-rows: repeat(7, 14px);
+  grid-template-columns: repeat(53, 14px);
+  grid-auto-flow: column;
+  grid-gap: 4px;
+  overflow: visible;
+  /* 确保热力图网格宽度适应容器 */
+  width: calc(100% - 30px);
+}
+
+.heatmap-cell {
+  width: 14px;
+  height: 14px;
+  background-color: #ebedf0;
+  border-radius: 2px;
+  position: relative;
+}
+
+.heatmap-cell[data-level="0"] {
+  background-color: #ebedf0;
+}
+
+.heatmap-cell[data-level="1"] {
+  background-color: #c6e48b;
+}
+
+.heatmap-cell[data-level="2"] {
+  background-color: #7bc96f;
+}
+
+.heatmap-cell[data-level="3"] {
+  background-color: #239a3b;
+}
+
+.heatmap-cell[data-level="4"] {
+  background-color: #196127;
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  max-width: 300px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 根据格子位置调整工具提示方向 */
+.heatmap-cell:nth-child(-n+21) .heatmap-tooltip {
+  /* 前3行格子的工具提示显示在下方 */
+  bottom: auto;
+  top: 100%;
+  margin-top: 5px;
+  margin-bottom: 0;
+  left: 50%;
+}
+
+.heatmap-cell:nth-child(n+22) .heatmap-tooltip {
+  /* 其余格子的工具提示显示在上方 */
+  bottom: 100%;
+  top: auto;
+  margin-bottom: 5px;
+  margin-top: 0;
+  left: 50%;
+}
+
+.heatmap-cell:hover .heatmap-tooltip {
+  opacity: 1;
+}
+
+.heatmap-loading, .heatmap-error {
+  text-align: center;
+  padding: 20px;
+  color: #767676;
+  font-size: 14px;
+}
+
+.heatmap-error {
+  color: #e74c3c;
+}
+
+@media screen and (max-width: 900px) {
+  .heatmap-grid {
+    /* 在小屏幕上减小格子大小并调整间隙 */
+    grid-template-rows: repeat(7, 10px);
+    grid-template-columns: repeat(53, 10px);
+    grid-gap: 3px;
+  }
+  
+  .heatmap-cell {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .heatmap-days {
+    top: 22px;
+    height: calc(7 * 10px + 6 * 3px);
+  }
+  
+  .heatmap-days span {
+    height: 10px;
+    line-height: 10px;
+    font-size: 8px;
+  }
+}
+
+/* 移除以下媒体查询，因为我们将通过JavaScript动态调整格子大小 */
+@media screen and (max-width: 768px) {
+  .heatmap-container {
+    width: 100%;
+  }
+  
+  /* 移除最小宽度限制 */
+  .heatmap-wrapper {
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .heatmap-container {
+    margin: 20px auto;
+    padding: 10px 0;
+  }
+  
+  /* 移除最小宽度限制 */
+  .heatmap-wrapper {
+    min-width: auto;
+  }
+  
+  /* 在非常小的屏幕上，隐藏星期标签 */
+  .heatmap-days span:nth-child(2),  /* 一 */
+  .heatmap-days span:nth-child(6) { /* 五 */
+    visibility: hidden;
+  }
+}
